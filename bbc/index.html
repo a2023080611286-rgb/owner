@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客家好好玩 - 兒童數位文創機器人專賣店</title>
+    <!-- 引入外部 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 Google Fonts 與 FontAwesome 圖示 -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 頂部宣傳橫幅 -->
+    <div class="top-banner">
+        🎉 歡迎來到「客家好好玩」！全館機器人與數位文創小物限時免運，快帶可愛小幫手回家！ 🚀
+    </div>
+
+    <!-- 導覽列 -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-robot"></i> 客家好好玩 <span>Hakka Fun</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero">首頁</a>
+                <a href="#products">精選機器人</a>
+                <a href="#features">特色亮點</a>
+                <a href="#about">關於我們</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartToggleBtn">
+                    <i class="fa-solid fa-cart-shopping"></i> 購物車 <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主視覺 Banner (Hero Section) -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge-tag">✨ 兒童專屬 • 趣味互動</span>
+                <h1>讓科技充滿客家味<br>陪伴孩子快樂成長！</h1>
+                <p>結合傳統二十四節氣、像素藝術、茶寵文化與在地文創，打造 10 款兼具教育與療癒的客語數位機器人與互動小物！</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn btn-primary"><i class="fa-solid fa-store"></i> 探索全部商品</a>
+                    <a href="#features" class="btn btn-secondary"><i class="fa-solid fa-heart"></i> 了解四大特色</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card c1"><i class="fa-solid fa-cloud-rain"></i> 節氣桌布</div>
+                <div class="floating-card c2"><i class="fa-solid fa-seedling"></i> 成長盲盒</div>
+                <div class="floating-card c3"><i class="fa-solid fa-shield-cat"></i> 心情御守</div>
+                <img src="images/01.jpg" alt="客家好好玩主視覺" class="hero-main-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色亮點 -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">🌟 為什麼小朋友與家長都愛「客家好好玩」？</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon-box" style="background: #ffeaa7;"><i class="fa-solid fa-face-smile"></i></div>
+                    <h3>兒童安全友善</h3>
+                    <p>色彩繽紛活潑，介面直覺好上手，無負擔的數位療癒體驗。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box" style="background: #fab1a0;"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <h3>在地文化融合</h3>
+                    <p>將客家節氣、茶藝、古早味建築與現代數位科技完美結合。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box" style="background: #55efc4;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>互動學習成長</h3>
+                    <p>透過數位植栽打卡、御守祈願與拼圖挑戰，邊玩邊學增進專注力。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box" style="background: #74b9ff;"><i class="fa-solid fa-gift"></i></div>
+                    <h3>精緻數位典藏</h3>
+                    <p>每款機器人皆附贈專屬質感包裝與多功能數位應用場景。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商品展示區 -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">🛍️ 10 台精選客語機器人與文創小物</h2>
+            <p class="section-subtitle">點擊「查看詳情」了解更多，或直接將喜歡的萌物加入購物車！</p>
+            
+            <div class="product-grid" id="productGrid">
+                <!-- 內容會由 JavaScript 動態載入 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 / 品牌精神 -->
+    <section class="about-section" id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>💚 傳承客家文化，點亮童趣未來</h2>
+                <p>我們深信，科技與傳統文化並非平行線。「客家好好玩」致力於透過創新的數位互動、可愛的像素設計與日常療癒小物，引導孩子在遊戲與生活中自然接觸客家精神與東方節氣美學。</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>10 款</h3>
+                        <p>原創數位機器人</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>安全童趣設計</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24H</h3>
+                        <p>溫馨陪伴不打烊</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="images/03.jpg" alt="客家好好玩品牌精神">
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3><i class="fa-solid fa-robot"></i> 客家好好玩</h3>
+                <p>專為兒童與家庭打造的客語文創與數位療癒機器人專賣店。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速導覽</h4>
+                <ul>
+                    <li><a href="#hero">首頁</a></li>
+                    <li><a href="#products">精選機器人</a></li>
+                    <li><a href="#features">四大特色</a></li>
+                    <li><a href="#about">關於我們</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客服與支援</h4>
+                <p>服務時間：週一至週五 09:00 - 18:00</p>
+                <p>客服信箱：service@hakkafun.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 客家好好玩 Hakka Fun. All Rights Reserved. 圖片與內容版權所有</p>
+        </div>
+    </footer>
+
+    <!-- 購物車抽屜側邊欄 -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> 您的專屬購物車</h3>
+            <button class="close-cart-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- 購物車項目將動態生成 -->
+            <div class="empty-cart-msg">購物車目前是空的唷！快去挑選喜歡的機器人吧～</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>總計金額：</span>
+                <span id="cartTotalPrice">NT$ 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn"><i class="fa-solid fa-bag-shopping"></i> 前往結帳</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- 商品詳情彈跳視窗 (Modal) -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body" id="modalBodyContent">
+                <!-- 動態載入彈窗內容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 通知小提示 -->
+    <div class="toast" id="toastNotification">已成功加入購物車！</div>
+
+    <!-- JavaScript 互動邏輯 -->
+    <script>
+        // 10 款商品資料庫（完整對應 01.jpg 到 10.jpg）
+        const products = [
+            {
+                id: 1,
+                number: "01",
+                name: "動態節氣桌布 / 桌面小精靈",
+                category: "動態數位桌布",
+                price: 880,
+                image: "images/01.jpg",
+                slogan: "清明雨絲、秋分落葉，自動生成療癒系小精靈！",
+                description: "結合台灣與東方傳統二十四節氣的動態數位桌布，畫面上會隨著當天節氣與天氣變化（如清明雨絲、秋分落葉）自動生成對應的療癒系小精靈或微景觀。",
+                appScene: "電腦、手機螢幕動態背景。"
+            },
+            {
+                id: 2,
+                number: "02",
+                name: "虛擬香氛擴香瓶（數位嗅覺/視覺）",
+                category: "數位嗅覺體驗",
+                price: 1280,
+                image: "images/02.jpg",
+                slogan: "深夜咖啡廳與森林雨後，搭配舒壓白噪音！",
+                description: "視覺上呈現會緩慢冒出虛擬蒸氣、隨著光影流動的玻璃擴香瓶。雖然電腦無法真的散發香味，但可結合特定情緒主題（如「深夜咖啡廳」、「森林雨後」），搭配舒壓的白噪音與視覺動態。",
+                appScene: "專注軟體背景、線上自習室裝飾。"
+            },
+            {
+                id: 3,
+                number: "03",
+                name: "會「成長」的數位植物盲盒",
+                category: "互動養成小物",
+                price: 990,
+                image: "images/03.jpg",
+                slogan: "每天打卡澆水，幾週後隨機開出獨一無二的數位花朵！",
+                description: "使用者認養一盆虛擬文創植物，它需要靠使用者每天在數位手帳打卡、完成待辦事項來「澆水」與施肥，經過幾週後會隨機開出獨一無二的數位花朵。",
+                appScene: "數位手帳 App 內的互動小物、社群成就徽章。"
+            },
+            {
+                id: 4,
+                number: "04",
+                name: "復古像素風「心情御守」",
+                category: "像素護身符",
+                price: 790,
+                image: "images/04.jpg",
+                slogan: "期末歐趴、專注不分心，自訂祈願與可愛動態符文！",
+                description: "採用懷舊的像素藝術風格製作的數位護身符（御守），使用者可以自訂想祈願的主題（如「期末歐趴」、「專注不分心」），御守上面還會有可愛的動態符文。",
+                appScene: "社群個人檔案裝飾、手機桌面小工具。"
+            },
+            {
+                id: 5,
+                number: "05",
+                name: "虛擬文創紙膠帶與數位印章組",
+                category: "數位筆記素材",
+                price: 680,
+                image: "images/05.jpg" || "images/05.jpg", // 預防萬一
+                slogan: "在地插畫風格，讓平板筆記充滿手作溫暖質感！",
+                description: "專為數位手帳或電子筆記設計的文創素材組。融合了本土文化、在地插畫風格的虛擬紙膠帶與印章，讓使用者在平板上做筆記時也有手作的溫暖質感。",
+                appScene: "GoodNotes、Notability 等數位筆記軟體。"
+            },
+            {
+                id: 6,
+                number: "06",
+                name: "聲音記憶膠囊（文創語音明信片）",
+                category: "3D 復古膠囊",
+                price: 1180,
+                image: "images/06.jpg",
+                slogan: "錄製 30 秒語音與手繪塗鴉，送給好朋友的數位聲音禮物！",
+                description: "一個外型精緻的 3D 復古膠囊模型，點開後可以錄製或播放一段 30 秒的語音與手繪塗鴉。這是一個可以送給朋友的數位聲音禮物。",
+                appScene: "數位卡片、節慶祝福互動網頁。"
+            },
+            {
+                id: 7,
+                number: "07",
+                name: "AR 虛擬文創胸章 / 徽章",
+                category: "3D AR 徽章",
+                price: 890,
+                image: "images/07.jpg",
+                slogan: "小籠包、台灣黑熊與霓虹招牌，元宇宙穿搭必備！",
+                description: "設計一系列具有台灣在地特色（如小籠包、黑熊、霓虹招牌）的 3D 徽章。使用者可以在 AR 濾鏡或元宇宙虛擬化身（Avatar）上佩戴它。",
+                appScene: "社群限時動態濾鏡、虛擬世界穿搭。"
+            },
+            {
+                id: 8,
+                number: "08",
+                name: "懷舊底片相機濾鏡包（附虛擬相框）",
+                category: "底片濾鏡相機",
+                price: 1090,
+                image: "images/08.jpg",
+                slogan: "舊戲院票根與復古郵戳，捕捉最有味道的時光！",
+                description: "模擬古早味底片機操作介面的數位濾鏡，拍出來的照片會自動套用特製的文創底片框（如舊戲院票根邊框、復古郵戳）。",
+                appScene: "社群拍照 App、日常紀錄。"
+            },
+            {
+                id: 9,
+                number: "09",
+                name: "虛擬寵物茶寵（電子療癒小物）",
+                category: "茶藝電子療癒",
+                price: 950,
+                image: "images/09.jpg",
+                slogan: "玉石小金蟾與陶土小茶包，永遠養不膩的辦公室萌物！",
+                description: "靈感來自茶藝文化中的「茶寵」。這是一隻永遠養不膩、會隨著點擊次數變換光澤與動作的虛擬小茶寵（例如玉石小金蟾或陶土小茶包）。",
+                appScene: "辦公室族群的桌面療癒小物、網頁小工具。"
+            },
+            {
+                id: 10,
+                number: "10",
+                name: "城市記憶立體拼圖（Voxel 建築）",
+                category: "3D 像素立體拼圖",
+                price: 1380,
+                image: "images/10.jpg",
+                slogan: "動手拼出傳統老街與紅磚洋樓，探索在地歷史故事！",
+                description: "將在地特色老建築（如傳統老街、紅磚洋樓）轉化為 3D 數位方塊（Voxel）拼圖，使用者可以在手機上動手把它一塊塊拼起來，完成後還能解說該建築的歷史小故事。",
+                appScene: "文創觀光推廣、互動教育小遊戲。"
+            }
+        ];
+
+        // 購物車陣列
+        let cart = [];
+
+        // DOM 元素
+        const productGrid = document.getElementById('productGrid');
+        const cartToggleBtn = document.getElementById('cartToggleBtn');
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartCount = document.getElementById('cartCount');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartTotalPrice = document.getElementById('cartTotalPrice');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const toastNotification = document.getElementById('toastNotification');
+        
+        const productModal = document.getElementById('productModal');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        const modalBodyContent = document.getElementById('modalBodyContent');
+
+        // 初始化商品列表
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-img-box">
+                        <span class="product-num-tag">#${p.number}</span>
+                        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=60'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${p.category}</span>
+                        <h3 class="product-title">${p.name}</h3>
+                        <p class="product-slogan">${p.slogan}</p>
+                        <div class="product-footer">
+                            <span class="product-price">NT$ ${p.price}</span>
+                            <div class="product-btn-group">
+                                <button class="btn-detail" onclick="openModal(${p.id})">詳情</button>
+                                <button class="btn-add-cart" onclick="addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        // 開啟商品詳情彈窗
+        window.openModal = function(id) {
+            const p = products.find(item => item.id === id);
+            if (!p) return;
+
+            modalBodyContent.innerHTML = `
+                <div class="modal-img-box">
+                    <img src="${p.image}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=60'">
+                </div>
+                <div class="modal-details">
+                    <span class="product-category">編號 #${p.number} | ${p.category}</span>
+                    <h2>${p.name}</h2>
+                    <p class="modal-slogan">"${p.slogan}"</p>
+                    <div class="modal-desc-box">
+                        <h4>💡 概念特色：</h4>
+                        <p>${p.description}</p>
+                        <h4 style="margin-top: 12px;">🎯 應用場景：</h4>
+                        <p>${p.appScene}</p>
+                    </div>
+                    <div class="modal-price-action">
+                        <span class="product-price">NT$ ${p.price}</span>
+                        <button class="btn btn-primary" onclick="addToCart(${p.id}); closeModal();"><i class="fa-solid fa-cart-plus"></i> 立即購買</button>
+                    </div>
+                </div>
+            `;
+            productModal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            productModal.style.display = 'none';
+        }
+
+        modalCloseBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === productModal) closeModal();
+        });
+
+        // 加入購物車
+        window.addToCart = function(id) {
+            const p = products.find(item => item.id === id);
+            const existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...p, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`已將「${p.name}」加入購物車！`);
+        }
+
+        // 更新購物車 UI
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalCount;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `<div class="empty-cart-msg">購物車目前是空的唷！快去挑選喜歡的機器人吧～</div>`;
+                cartTotalPrice.textContent = `NT$ 0`;
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                totalPrice += item.price * item.quantity;
+                const cartItemEl = document.createElement('div');
+                cartItemEl.className = 'cart-item';
+                cartItemEl.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <p>NT$ ${item.price}</p>
+                        <div class="cart-item-qty">
+                            <button onclick="changeQty(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQty(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})"><i class="fa-solid fa-trash"></i></button>
+                `;
+                cartItemsContainer.appendChild(cartItemEl);
+            });
+
+            cartTotalPrice.textContent = `NT$ ${totalPrice}`;
+        }
+
+        // 增減數量
+        window.changeQty = function(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        }
+
+        // 移除品項
+        window.removeFromCart = function(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        // 顯示通知
+        function showToast(msg) {
+            toastNotification.textContent = msg;
+            toastNotification.classList.add('show');
+            setTimeout(() => {
+                toastNotification.classList.remove('show');
+            }, 2500);
+        }
+
+        // 購物車抽屜開關
+        cartToggleBtn.addEventListener('click', () => {
+            cartDrawer.classList.add('open');
+            cartOverlay.classList.add('open');
+        });
+
+        function closeCartDrawer() {
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
+
+        closeCartBtn.addEventListener('click', closeCartDrawer);
+        cartOverlay.addEventListener('click', closeCartDrawer);
+
+        // 結帳按鈕
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('您的購物車是空的唷！');
+                return;
+            }
+            alert('🎉 感謝您的訂購！客家好好玩機器人將盡速為您安排出貨！');
+            cart = [];
+            updateCartUI();
+            closeCartDrawer();
+        });
+
+        // 頁面載入時渲染商品
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+        });
+    </script>
+</body>
+</html>
