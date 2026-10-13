@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客家好好玩 - 兒童數位文創專賣店</title>
+    <!-- 引入 Google Fonts 與 FontAwesome 圖示 -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ------------------------------------------------ */
+        /* 🎨 溫暖柔和的底色設定 (#fcf9f2)                   */
+        /* ------------------------------------------------ */
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ff9f43;
+            --accent-color: #1dd1a1;
+            --mint-color: #55efc4;
+            --bg-color: #fcf9f2; 
+            --card-bg: #ffffff;
+            --text-color: #2d3436;
+            --text-light: #636e72;
+            --border-radius: 20px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 頂部宣傳橫幅 */
+        .top-banner {
+            background: linear-gradient(90deg, #ff6b6b, #ff9f43, #feca57);
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* 導覽列 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            background: var(--mint-color);
+            color: #006266;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: var(--transition);
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            background: #ff5252;
+        }
+
+        .cart-badge {
+            background: white;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+        }
+
+        /* Hero 區塊 */
+        .hero {
+            padding: 60px 0;
+            background: radial-gradient(circle at top right, #ffeaa7 0%, var(--bg-color) 60%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: #fab1a0;
+            color: #d63031;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-main-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 6px solid white;
+        }
+
+        /* 商品展示區 */
+        .products-section {
+            padding: 80px 0;
+            background-color: var(--bg-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 3px solid #fff;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-img-box {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: #dfe6e9;
+        }
+
+        .product-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-box img {
+            transform: scale(1.05);
+        }
+
+        .product-num-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .product-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-slogan {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 15px;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        .product-btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-detail {
+            background: #f1f2f6;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-add-cart {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-add-cart:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        /* ------------------------------------------------ */
+        /* 🍵 客家擂茶特效動畫與粒子樣式                      */
+        /* ------------------------------------------------ */
+        .lei-cha-particle {
+            position: fixed !important;
+            font-size: 1.6rem !important;
+            pointer-events: none !important;
+            z-index: 99999 !important;
+            animation: leiChaExplode 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards !important;
+        }
+
+        @keyframes leiChaExplode {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .lei-cha-toast-msg {
+            position: fixed !important;
+            background: linear-gradient(135deg, #00b894, #55efc4) !important;
+            color: #004d40 !important;
+            padding: 10px 18px !important;
+            border-radius: 25px !important;
+            font-weight: 900 !important;
+            font-size: 1rem !important;
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4) !important;
+            z-index: 100000 !important;
+            pointer-events: none !important;
+            animation: leiChaFloatUp 1.2s ease-out forwards !important;
+        }
+
+        @keyframes leiChaFloatUp {
+            0% {
+                transform: translateY(0) scale(0.7);
+                opacity: 0;
+            }
+            20% {
+                transform: translateY(-20px) scale(1.1);
+                opacity: 1;
+            }
+            80% {
+                transform: translateY(-50px) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-80px) scale(0.9);
+                opacity: 0;
+            }
+        }
+
+        /* 購物車抽屜側邊欄 */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.open { right: 0; }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+            opacity: 0; visibility: hidden;
+            transition: var(--transition);
+        }
+        .cart-overlay.open { opacity: 1; visibility: visible; }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #f1f2f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-cart-btn {
+            background: none; border: none; font-size: 1.3rem; cursor: pointer;
+        }
+
+        .cart-items { padding: 20px; flex-grow: 1; overflow-y: auto; }
+        .empty-cart-msg { text-align: center; color: var(--text-light); margin-top: 50px; }
+
+        .cart-item {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #f1f2f6;
+        }
+        .cart-item img { width: 65px; height: 65px; object-fit: cover; border-radius: 12px; }
+        .cart-item-info { flex-grow: 1; }
+        .cart-item-info h4 { font-size: 0.95rem; margin-bottom: 4px; }
+        .cart-item-info p { color: var(--primary-color); font-weight: 700; font-size: 0.9rem; }
+
+        .cart-footer { padding: 20px; border-top: 1px solid #f1f2f6; background: #f8f9fa; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; }
+        .checkout-btn {
+            width: 100%; background: var(--accent-color); color: #006266;
+            border: none; padding: 14px; border-radius: 14px; font-weight: 700; cursor: pointer;
+        }
+
+        /* 彈跳視窗 Modal */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            z-index: 3000; display: none; align-items: center; justify-content: center; padding: 20px;
+        }
+        .modal-content {
+            background: white; max-width: 800px; width: 100%; border-radius: var(--border-radius); overflow: hidden; position: relative;
+        }
+        .modal-close {
+            position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.1); border: none;
+            width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10;
+        }
+        .modal-body { display: grid; grid-template-columns: 1fr 1fr; max-height: 80vh; overflow-y: auto; }
+        .modal-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .modal-details { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+
+        @media (max-width: 768px) {
+            .hero-content, .modal-body { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .cart-drawer { width: 100%; right: -100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        🎉 歡迎來到「客家好好玩」！全館數位文創與療癒小物限時免運，快帶可愛小幫手回家！ 🚀
+    </div>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-robot"></i> 客家好好玩 <span>Hakka Fun</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero">首頁</a>
+                <a href="#products">精選商品</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartToggleBtn">
+                    <i class="fa-solid fa-cart-shopping"></i> 購物車 <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge-tag">✨ 兒童專屬 • 趣味互動</span>
+                <h1>讓科技充滿客家味<br>陪伴孩子快樂成長！</h1>
+                <p>結合傳統二十四節氣、像素藝術、茶寵文化與在地文創，打造 10 款兼具教育與療癒的數位互動小物！</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn btn-primary"><i class="fa-solid fa-store"></i> 探索全部商品</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/01.jpg" alt="主視覺" class="hero-main-img" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=60'">
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">🛍️ 10 台精選客語機器人與文創小物</h2>
+            <p class="section-subtitle">點擊加入購物車，體驗香氣四溢的「客家擂茶特效」！</p>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+
+    <!-- 購物車抽屜 -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> 您的專屬購物車</h3>
+            <button class="close-cart-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <div class="empty-cart-msg">購物車目前是空的唷！</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>總計金額：</span>
+                <span id="cartTotalPrice">NT$ 0</span>
+            </div>
+            <button class="checkout-btn" onclick="alert('🎉 感謝您的訂購！')">前往結帳</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- 彈跳視窗 Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript 互動邏輯與 10 張圖片對應 -->
+    <script>
+        const products = [
+            { id: 1, number: "01", name: "動態節氣桌布 / 桌面小精靈", category: "動態數位桌布", price: 880, image: "images/01.jpg", slogan: "清明雨絲、秋分落葉，自動生成療癒系小精靈！", description: "結合台灣與東方傳統二十四節氣的動態數位桌布，隨著氣候自動生成療癒系微景觀。", appScene: "電腦, 手機螢幕動態背景。" },
+            { id: 2, number: "02", name: "虛擬香氛擴香瓶（數位嗅覺/視覺）", category: "數位嗅覺體驗", price: 1280, image: "images/02.jpg", slogan: "深夜咖啡廳與森林雨後，搭配舒壓白噪音！", description: "視覺上呈現會緩慢冒出虛擬蒸氣、隨著光影流動的玻璃擴香瓶。", appScene: "專注軟體背景, 線上自習室裝飾。" },
+            { id: 3, number: "03", name: "會「成長」的數位植物盲盒", category: "互動養成小物", price: 990, image: "images/03.jpg", slogan: "每天打卡澆水，幾週後隨機開出獨一無二的數位花朵！", description: "使用者認養虛擬文創植物，靠每天在數位手帳打卡來澆水施肥。", appScene: "數位手帳 App 內的互動小物。" },
+            { id: 4, number: "04", name: "復古像素風「心情御守」", category: "像素護身符", price: 790, image: "images/04.jpg", slogan: "期末歐趴、專注不分心，自訂祈願與可愛動態符文！", description: "採用懷舊像素藝術風格製作的數位護身符（御守）。", appScene: "社群個人檔案裝飾, 手機桌面小工具。" },
+            { id: 5, number: "05", name: "虛擬文創紙膠帶與數位印章組", category: "數位筆記素材", price: 680, image: "images/05.jpg", slogan: "在地插畫風格，讓平板筆記充滿手作溫暖質感！", description: "專為數位手帳或電子筆記設計的文創素材組。", appScene: "GoodNotes, Notability 筆記軟體。" },
+            { id: 6, number: "06", name: "聲音記憶膠囊（文創語音明信片）", category: "3D 復古膠囊", price: 1180, image: "images/06.jpg", slogan: "錄製 30 秒語音與手繪塗鴉，送給好朋友的數位聲音禮物！", description: "一個外型精緻的 3D 復古膠囊模型，點開可錄製或播放語音。", appScene: "數位卡片, 節慶祝福互動網頁。" },
+            { id: 7, number: "07", name: "AR 虛擬文創胸章 / 徽章", category: "3D AR 徽章", price: 890, image: "images/07.jpg", slogan: "小籠包、台灣黑熊與霓虹招牌，元宇宙穿搭必備！", description: "設計一系列具有台灣在地特色的 3D 徽章。", appScene: "社群限時動態濾鏡, 虛擬世界穿搭。" },
+            { id: 8, number: "08", name: "懷舊底片相機濾鏡包（附虛擬相框）", category: "底片濾鏡相機", price: 1090, image: "images/08.jpg", slogan: "舊戲院票根與復古郵戳，捕捉最有味道的時光！", description: "模擬古早味底片機操作介面的數位濾鏡。", appScene: "社群拍照 App, 日常紀錄。" },
+            { id: 9, number: "09", name: "虛擬寵物茶寵（電子療癒小物）", category: "茶藝電子療癒", price: 950, image: "images/09.jpg", slogan: "玉石小金蟾與陶土小茶包，永遠養不膩的辦公室萌物！", description: "靈感來自茶藝文化中的茶寵，點擊會變換光澤。", appScene: "辦公室族群的桌面療癒小物。" },
+            { id: 10, number: "10", name: "城市記憶立體拼圖（Voxel 建築）", category: "3D 像素立體拼圖", price: 1380, image: "images/10.jpg", slogan: "動手拼出傳統老街與紅磚洋樓，探索在地歷史故事！", description: "將在地特色老建築轉化為 3D 數位方塊拼圖。", appScene: "文創觀光推廣, 互動教育小遊戲。" }
+        ];
+
+        let cart = [];
+
+        const productGrid = document.getElementById('productGrid');
+        const cartToggleBtn = document.getElementById('cartToggleBtn');
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartCount = document.getElementById('cartCount');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartTotalPrice = document.getElementById('cartTotalPrice');
+        
+        const productModal = document.getElementById('productModal');
+        const modalBodyContent = document.getElementById('modalBodyContent');
+
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-img-box">
+                        <span class="product-num-tag">#${p.number}</span>
+                        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=60'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${p.category}</span>
+                        <h3 class="product-title">${p.name}</h3>
+                        <p class="product-slogan">${p.slogan}</p>
+                        <div class="product-footer">
+                            <span class="product-price">NT$ ${p.price}</span>
+                            <div class="product-btn-group">
+                                <button class="btn-detail" onclick="openModal(${p.id})">詳情</button>
+                                <button class="btn-add-cart" onclick="triggerLeiChaEffect(event); addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        window.openModal = function(id) {
+            const p = products.find(item => item.id === id);
+            if (!p) return;
+
+            modalBodyContent.innerHTML = `
+                <div class="modal-img-box">
+                    <img src="${p.image}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=60'">
+                </div>
+                <div class="modal-details">
+                    <span class="product-category">編號 #${p.number} | ${p.category}</span>
+                    <h2>${p.name}</h2>
+                    <p style="color: var(--secondary-color); font-weight: 700; margin-bottom: 15px;">"${p.slogan}"</p>
+                    <div style="background: var(--bg-color); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                        <h4>💡 概念特色：</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">${p.description}</p>
+                        <h4 style="margin-top: 10px;">🎯 應用場景：</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-light);">${p.appScene}</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="product-price">NT$ ${p.price}</span>
+                        <button class="btn btn-primary" onclick="triggerLeiChaEffect(event); addToCart(${p.id}); closeModal();"><i class="fa-solid fa-cart-plus"></i> 立即購買</button>
+                    </div>
+                </div>
+            `;
+            productModal.style.display = 'flex';
+        }
+
+        window.closeModal = function() {
+            productModal.style.display = 'none';
+        }
+
+        // 🍵 客家擂茶特效函數 (點擊按鈕位置噴發茶葉、花生、芝麻粒子)
+        function triggerLeiChaEffect(event) {
+            const btn = event.currentTarget;
+            const rect = btn.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+
+            const leiChaSymbols = ['🍵', '🍃', '🥜', '🫘', '✨', '🌿'];
+            const particleCount = 16;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'lei-cha-particle';
+                particle.textContent = leiChaSymbols[Math.floor(Math.random() * leiChaSymbols.length)];
+                
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 100;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance - 50;
+
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                particle.style.animationDuration = `${0.6 + Math.random() * 0.4}s`;
+
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+
+            const floatText = document.createElement('div');
+            floatText.className = 'lei-cha-toast-msg';
+            floatText.innerHTML = '🍵 客家擂茶香氣爆發！好茶入袋！';
+            floatText.style.left = `${x - 90}px`;
+            floatText.style.top = `${y - 60}px`;
+            document.body.appendChild(floatText);
+
+            setTimeout(() => floatText.remove(), 1200);
+        }
+
+        window.addToCart = function(id) {
+            const p = products.find(item => item.id === id);
+            const existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...p, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalCount;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `<div class="empty-cart-msg">購物車目前是空的唷！</div>`;
+                cartTotalPrice.textContent = `NT$ 0`;
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+            cart.forEach(item => {
+                totalPrice += item.price * item.quantity;
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>NT$ ${item.price} x ${item.quantity}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            cartTotalPrice.textContent = `NT$ ${totalPrice}`;
+        }
+
+        cartToggleBtn.addEventListener('click', () => {
+            cartDrawer.classList.add('open');
+            cartOverlay.classList.add('open');
+        });
+
+        function closeCartDrawer() {
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
+        closeCartBtn.addEventListener('click', closeCartDrawer);
+        cartOverlay.addEventListener('click', closeCartDrawer);
+
+        window.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>
